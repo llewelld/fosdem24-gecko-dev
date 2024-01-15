@@ -1,0 +1,293 @@
+\PassOptionsToPackage{table}{xcolor}
+
+\documentclass[
+%	handout,
+	notes=none,
+	aspectratio=169
+]{beamer}
+
+% Comment out the following line to hide the notes
+%\setbeameroption{show notes}
+
+\input{macros}
+
+\usefolder{theme}
+\usetheme{sailfish}
+
+\begin{document}
+
+\title{Daily blogging embedded Gecko development}
+\subtitle{FOSDEM'24\\FOSS on Mobile Devroom}
+\author{David Llewellyn-Jones}
+\date{3rd February 2024}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\frame{
+\titlepage
+}
+\note{
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{About me}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item First
+\item Second
+\item Third
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item First
+\item Second
+\item Third
+\end{enumerate}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Linux on Mobile History}
+
+\begin{columns}[T]
+\begin{column}[T]{1.1\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{timeline}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Maemo 4.1}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{0.5cm}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{n810}
+\end{center}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Maemo 5}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{0.8cm}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{n900}
+\end{center}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish OS 4.5}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.26\textwidth]{xperia10ii}
+\end{center}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Three Pillars of Sailfish OS}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{0.5cm}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{pillars}
+\end{center}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish OS Stack}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Android drivers
+\item Libhybris and Libgbinder
+\item Linux kernel 4.19.248
+\item glibc
+\item systemd
+\item busybox
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.0cm}
+\includegraphics[height=1.0\textheight]{stack-lower}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish OS Stack}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.0cm}
+\hspace{1.3cm}
+\includegraphics[height=1.0\textheight]{stack-upper}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setcounter{enumi}{6}
+\setlength{\parskip}{0.5em}
+\item Qt middleware
+\item Wayland + Lipstick compositor
+\item Silica user interface
+\item Lipstick launcher
+\item Gecko-based Web browser
+\item Android App Support
+\end{enumerate}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish SDK}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.3cm}
+\hspace{0.1cm}
+\includegraphics[width=0.9\textwidth]{sailfishide}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.3cm}
+\includegraphics[width=0.9\textwidth]{sfdk}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Further info}
+\setlength{\leftmargini}{7.0em}
+\vspace{0.8cm}
+
+\begin{itemize}
+\setlength{\parskip}{1.0em}
+\item[Dev Diary] \, \url{https://www.flypig.co.uk/gecko}
+\item[Sailfish Browser] \, \url{https://github.com/sailfishos/sailfish-browser}
+\item[gecko-dev] \, \url{https://github.com/llewelld/gecko-dev}
+\item[Sailfish OS] \, \url{https://sailfishos.org}
+\item[Slides source] \, \url{https://github.com/llewelld/fosdem24-gecko-dev}
+\end{itemize}
+
+\end{frame}
+\note{
+\fontsize{7pt}{8pt}{\bibliographystyle{ieeetr}}
+\bibliography{slides}
+
+{\tiny Tux image attribution: lewing@isc.tamu.edu Larry Ewing and The GIMP}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
